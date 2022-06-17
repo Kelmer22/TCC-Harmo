@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/cervejaFragment">
+
+    <fragment
+        android:id="@+id/cervejaFragment"
+        android:name="com.yuri.pereira.harmoapp.CervejaFragment"
+        android:label="Cervejas"
+        tools:layout="@layout/fragment_cerveja" >
+        <action
+            android:id="@+id/action_cervejaFragment_to_harmonizacaoFragment"
+            app:destination="@id/harmonizacaoFragment" />
+        <action
+            android:id="@+id/action_cervejaFragment_to_detalhesCervejaFragment"
+            app:destination="@id/detalhesCervejaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/harmonizacaoFragment"
+        android:name="com.yuri.pereira.harmoapp.HarmonizacaoFragment"
+        android:label="Pratos"
+        tools:layout="@layout/fragment_harmonizacao" />
+    <fragment
+        android:id="@+id/detalhesCervejaFragment"
+        android:name="com.yuri.pereira.harmoapp.DetalhesCervejaFragment"
+        android:label="fragment_detalhes_cerveja"
+        tools:layout="@layout/fragment_detalhes_cerveja" >
+        <argument
+            android:name="cerveja"
+            app:argType="com.yuri.pereira.harmoapp.Cerveja" />
+    </fragment>
+</navigation>
