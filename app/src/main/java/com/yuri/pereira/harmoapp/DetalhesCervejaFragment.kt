@@ -44,6 +44,7 @@ class DetalhesCervejaFragment : Fragment(R.layout.fragment_detalhes_cerveja) {
             textViewTeorAlcoolico.text = args.teorAlcoolico
             textViewIbu.text = args.ibu
             textViewVolume.text = args.mililitros
+            textViewNome.text = args.nome
         }
     }
 }

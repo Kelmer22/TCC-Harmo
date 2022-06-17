@@ -17,6 +17,7 @@ class CervejaFragment : Fragment(R.layout.fragment_cerveja) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCervejaBinding.bind(view)
         configuraRecyclerView()
+        eventoPesquisaPersonagemSearchView()
     }
 
     private fun configuraRecyclerView() {
@@ -24,6 +25,33 @@ class CervejaFragment : Fragment(R.layout.fragment_cerveja) {
             LinearLayoutManager(context)
         binding.recycclerviewCerveja.adapter = adapter
         adapter.setListaCerveja(getListaCervejas())
+    }
+
+    private fun eventoPesquisaPersonagemSearchView() {
+        binding.searchViewPesquisaCervejas.setOnQueryTextListener(object :
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                adapter.setListaCerveja(getCervejasPorNome(query.toString()))
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.equals("")) {
+                    adapter.setListaCerveja(getListaCervejas())
+                }
+                return true
+            }
+        })
+    }
+
+    private fun getCervejasPorNome(params: String): List<Cerveja> {
+        val listaCervejaPorNome = mutableListOf<Cerveja>()
+        getListaCervejas().forEach { cerveja ->
+            if(cerveja.nome.contains(params)){
+                listaCervejaPorNome.add(cerveja)
+            }
+        }
+        return listaCervejaPorNome
     }
 
     private fun getListaCervejas(): List<Cerveja> {
