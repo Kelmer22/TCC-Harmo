@@ -21,7 +21,11 @@
         android:id="@+id/harmonizacaoFragment"
         android:name="com.yuri.pereira.harmoapp.HarmonizacaoFragment"
         android:label="Pratos"
-        tools:layout="@layout/fragment_harmonizacao" />
+        tools:layout="@layout/fragment_harmonizacao" >
+        <action
+            android:id="@+id/action_harmonizacaoFragment_to_detalhesHarmonizacaoFragment"
+            app:destination="@id/detalhesHarmonizacaoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detalhesCervejaFragment"
         android:name="com.yuri.pereira.harmoapp.DetalhesCervejaFragment"
@@ -31,4 +35,8 @@
             android:name="cerveja"
             app:argType="com.yuri.pereira.harmoapp.Cerveja" />
     </fragment>
+    <fragment
+        android:id="@+id/detalhesHarmonizacaoFragment"
+        android:name="com.yuri.pereira.harmoapp.DetalhesHarmonizacaoFragment"
+        android:label="DetalhesHarmonizacaoFragment" />
 </navigation>
